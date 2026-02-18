@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula 3 – ATIVIDADE 05 </title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f0fa; color: #333; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .header { background-color: #4B0082; color: white; width: 100%; max-width: 850px; padding: 15px; border-radius: 10px; text-align: center; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .container { background: white; width: 100%; max-width: 850px; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        
+        .section-title { background: #fdfaff; padding: 10px 20px; border-bottom: 2px solid #eee; font-weight: bold; color: #4B0082; font-size: 18px; margin: -20px -20px 20px -20px; border-radius: 10px 10px 0 0; }
+        .card { border: 2px solid #eee; border-radius: 10px; margin-bottom: 30px; padding: 20px; display: flex; flex-direction: column; }
+        
+        .grid-questions { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .question-block { margin-bottom: 15px; }
+        .question-block p { font-weight: bold; margin-bottom: 8px; font-size: 14px; color: #555; }
+        
+        select, textarea { padding: 12px; border: 2px solid #ddd; border-radius: 6px; width: 100%; font-size: 14px; cursor: pointer; font-family: inherit; }
+        select:focus, textarea:focus { border-color: #8e44ad; outline: none; }
+        
+        select.correct, textarea.correct { border-color: #2ecc71; background-color: #e8f8f1; color: #27ae60; font-weight: bold; }
+        
+        button { background-color: #4B0082; color: white; border: none; padding: 15px 50px; border-radius: 8px; cursor: pointer; font-size: 18px; margin-top: 10px; font-weight: bold; box-shadow: 0 4px #2e0050; transition: 0.2s; }
+        button:hover { background-color: #6a0dad; transform: scale(1.02); }
+        button:active { transform: translateY(2px); box-shadow: 0 2px #2e0050; }
+
+        #resultado { margin-top: 20px; font-size: 22px; font-weight: bold; text-align: center; display: none; padding: 20px; border-radius: 8px; width: 100%; max-width: 850px; border: 3px solid transparent; }
+        
+        @media (max-width: 600px) { .grid-questions { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>AULA 3 – ATIVIDADE 05</h1>
+    <p>Classificando Tipos de Dados e Entendendo a Lógica de Programação</p>
+</div>
+
+<div class="container">
+    <form id="quiz">
+        
+        <div class="card">
+            <div class="section-title">Parte 1 – Entrada e Saída</div>
+            <div class="question-block">
+                <p>1) Algoritmo: Calcular a média da turma</p>
+                <div class="grid-questions">
+                    <div>
+                        <label><small>Entrada (Notas):</small></label>
+                        <select id="q1">
+                            <option value="">Escolha...</option>
+                            <option value="inteiro">Inteiro</option>
+                            <option value="real">Real</option>
+                            <option value="texto">Texto</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label><small>Saída (Média):</small></label>
+                        <select id="q2">
+                            <option value="">Escolha...</option>
+                            <option value="inteiro">Inteiro</option>
+                            <option value="real">Real</option>
+                            <option value="texto">Texto</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>2) Algoritmo: Nome do aluno mais alto</p>
+                <div class="grid-questions">
+                    <div>
+                        <label><small>Entrada (Alturas):</small></label>
+                        <select id="q3">
+                            <option value="">Escolha...</option>
+                            <option value="inteiro">Inteiro</option>
+                            <option value="real">Real</option>
+                            <option value="texto">Texto</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label><small>Saída (Nome):</small></label>
+                        <select id="q4">
+                            <option value="">Escolha...</option>
+                            <option value="inteiro">Inteiro</option>
+                            <option value="real">Real</option>
+                            <option value="texto">Texto</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p>3) Algoritmo: Quantidade de alunos presentes</p>
+                <label><small>Saída:</small></label>
+                <select id="q5">
+                    <option value="">Escolha...</option>
+                    <option value="inteiro">Inteiro</option>
+                    <option value="real">Real</option>
+                    <option value="texto">Texto</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">Parte 2 – Coleções de Dados</div>
+            <div class="grid-questions">
+                <div class="question-block">
+                    <p>Conjunto A: {10, 25, 30, 42}</p>
+                    <select id="q6">
+                        <option value="">Escolha...</option>
+                        <option value="inteiro">Inteiro</option>
+                        <option value="real">Real</option>
+                        <option value="texto">Texto</option>
+                    </select>
+                </div>
+                <div class="question-block">
+                    <p>Conjunto B: {"Ana", "Carlos"}</p>
+                    <select id="q7">
+                        <option value="">Escolha...</option>
+                        <option value="inteiro">Inteiro</option>
+                        <option value="real">Real</option>
+                        <option value="texto">Texto</option>
+                    </select>
+                </div>
+                <div class="question-block">
+                    <p>Conjunto C: {1.75, 1.80, 1.65}</p>
+                    <select id="q8">
+                        <option value="">Escolha...</option>
+                        <option value="inteiro">Inteiro</option>
+                        <option value="real">Real</option>
+                        <option value="texto">Texto</option>
+                    </select>
+                </div>
+            </div>
+            <div class="question-block">
+                <p>Por que não podemos misturar 25 com "Maria" no mesmo conjunto?</p>
+                <textarea id="just1" rows="2" placeholder="Sua justificativa..."></textarea>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">Parte 3 e 4 – Correção e Justificativa</div>
+            <div class="question-block">
+                <p>Corrija a afirmação: "Nome é número real."</p>
+                <select id="q9">
+                    <option value="">Escolha...</option>
+                    <option value="texto">Nome é texto</option>
+                    <option value="inteiro">Nome é inteiro</option>
+                    <option value="real">Nome é real</option>
+                </select>
+            </div>
+            <div class="question-block">
+                <p>Explique a correção acima:</p>
+                <textarea id="just2" rows="2" placeholder="Explique por que nome não é real..."></textarea>
+            </div>
+            <div class="question-block">
+                <p>Por que a média da turma é número real?</p>
+                <textarea id="just3" rows="2" placeholder="Justifique o tipo de dado da média..."></textarea>
+            </div>
+        </div>
+
+        <center><button type="button" onclick="corrigir()">FINALIZAR E VER NOTA</button></center>
+    </form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+function verificarCampo(id, respostaCorreta) {
+    const campo = document.getElementById(id);
+    if (campo.value === respostaCorreta) {
+        campo.classList.add('correct');
+        return 1;
+    } else {
+        campo.classList.remove('correct');
+        return 0;
+    }
+}
+
+function verificarTexto(id, minLength) {
+    const campo = document.getElementById(id);
+    if (campo.value.trim().length >= minLength) {
+        campo.classList.add('correct');
+        return true;
+    } else {
+        campo.classList.remove('correct');
+        return false;
+    }
+}
+
+function corrigir() {
+    let nota = 0;
+
+    // Parte 1 (Baseado no seu script original, cada acerto soma 1 ponto, limitado ao teto depois)
+    nota += verificarCampo("q1", "real");
+    nota += verificarCampo("q2", "real");
+    nota += verificarCampo("q3", "real");
+    nota += verificarCampo("q4", "texto");
+    nota += verificarCampo("q5", "inteiro");
+
+    // Parte 2
+    nota += verificarCampo("q6", "inteiro");
+    nota += verificarCampo("q7", "texto");
+    nota += verificarCampo("q8", "real");
+    if (verificarTexto("just1", 10)) nota++;
+
+    // Parte 3
+    nota += verificarCampo("q9", "texto");
+    if (verificarTexto("just2", 10)) nota++;
+
+    // Parte 4
+    if (verificarTexto("just3", 10)) nota += 2;
+
+    // Ajuste de teto para nota 10
+    if (nota > 10) nota = 10;
+
+    const resDiv = document.getElementById('resultado');
+    resDiv.style.display = "block";
+    
+    let cor = nota >= 7 ? "#2ecc71" : (nota >= 5 ? "#f1c40f" : "#e67e22");
+    resDiv.style.borderColor = cor;
+    resDiv.style.color = cor;
+    resDiv.style.backgroundColor = "#fff";
+    resDiv.innerHTML = `SUA NOTA FINAL: ${nota} / 10`;
+    
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
